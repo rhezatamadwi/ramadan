@@ -14,7 +14,7 @@
                 <li class="flex justify-between gap-x-6 py-5">
                     <div class="flex min-w-0 gap-x-4">
                         <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-sky-100 transition duration-300 group-hover:bg-sky-100 sm:size-12">
-                            <p class="font-bold text-xl">1</p>
+                            <i class="fa-solid fa-medal"></i> <p class="font-bold text-xl">1</p>
                         </div>
                     <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                     <div class="min-w-0 flex-auto">
