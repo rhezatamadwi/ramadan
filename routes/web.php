@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\LaporanProgressTilawahController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -22,5 +23,7 @@ Route::middleware('auth')->group(function () {
 });
  
 Route::resource('kegiatan', KegiatanController::class);
+
+Route::resource('tilawah', LaporanProgressTilawahController::class);
 
 require __DIR__.'/auth.php';
