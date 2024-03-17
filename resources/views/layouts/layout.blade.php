@@ -51,8 +51,8 @@
 
                     <main>
                         <a class="group" href="{{ url('/') }}"><h2 class="text-5xl leading-9 font-bold text-center mb-5 text-sky-800 group-hover:text-sky-100">Gema Ramadan</h2></a>
-                        <h3 class="text-2xl leading-7 text-center text-gray-600">Tingkatkan Iman, Raih Ampunan</h3>
-
+                        <!-- <h3 class="text-2xl leading-7 text-center text-gray-600">Tingkatkan Iman, Raih Ampunan</h3> -->
+                        <h3 id="typewriter" class="text-2xl leading-7 text-center text-gray-600"></h3>
                         @yield('content')
                     </main>
 
@@ -60,5 +60,38 @@
                 </div>
             </div>
         </div>
+        <script>
+            const words = ["Tingkatkan Iman, Raih Ampunan"];
+            let i = 0;
+            let j = 0;
+            let currentWord = "";
+            let isDeleting = false;
+
+            function type() {
+            currentWord = words[i];
+            if (isDeleting) {
+                document.getElementById("typewriter").textContent = currentWord.substring(0, j-1);
+                j--;
+                if (j == 1) {
+                isDeleting = false;
+                i++;
+                if (i == words.length) {
+                    i = 0;
+                }
+                }
+            } else {
+                document.getElementById("typewriter").textContent = currentWord.substring(0, j+1);
+                j++;
+                if (j == currentWord.length) {
+                    setTimeout(() => {
+                        isDeleting = true;
+                    }, 1500);
+                }
+            }
+            setTimeout(type, 100);
+            }
+
+            type();
+        </script>
     </body>
 </html>
