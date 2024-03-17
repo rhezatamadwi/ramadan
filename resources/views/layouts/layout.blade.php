@@ -39,9 +39,9 @@
             <div class="
     w-full
     bg-gradient-to-r
-    from-sky-400
-    via-yellow-400
-    to-emerald-400
+    from-sky-300
+    via-yellow-300
+    to-emerald-300
     background-animate
   ">
             <!-- <img id="background" class="absolute -left-20 top-0 max-w-[877px]" src="https://laravel.com/assets/img/welcome/background.svg" /> -->
