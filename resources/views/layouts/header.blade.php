@@ -5,13 +5,30 @@
     </div>
     @if (Route::has('login'))
         <nav class="-mx-3 flex flex-1 justify-end">
+            <a
+                href="https://github.com/rhezatamadwi/ramadan"
+                target="_blank"
+                class="text-black px-3 py-2 rounded"
+            >
+                <i class="fa-brands fa-github"></i>
+            </a>
             @auth
-                <a
+                <!-- <a
                     href="{{ url('/dashboard') }}"
                     class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                 >
                     Dashboard
-                </a>
+                </a> -->
+                <form class="py-2" method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a
+                        href="{{ url('/logout') }}"
+                        class="rounded-md px-3 py-2 text-red-600 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                        onclick="event.preventDefault(); this.closest('form').submit();"
+                    >
+                        Logout ({{ Auth::user()->email }})
+                    </a>
+                </form>
             @else
                 <a
                     href="{{ route('login') }}"
@@ -20,21 +37,13 @@
                     Log in
                 </a>
 
-                <a
-                    href="https://github.com/rhezatamadwi/ramadan"
-                    target="_blank"
-                    class="text-black px-3 py-2 rounded"
-                >
-                    <i class="fa-brands fa-github"></i>
-                </a>
-
                 @if (Route::has('register'))
-                    <!-- <a
+                    <a
                         href="{{ route('register') }}"
                         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                     >
                         Register
-                    </a> -->
+                    </a>
                 @endif
             @endauth
         </nav>

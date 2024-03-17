@@ -27,16 +27,20 @@
                 @endif
                 </p>
 
-                @if(stripos($kegiatan->judul, 'tilawah race') !== false) 
-                    <div class="mt-10 flex items-center justify-center gap-x-4">
-                        <a href="" class="bg-sky-800 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
-                            <i class="fa-solid fa-percent"></i> <span class="mx-3">Lapor Progress Tilawah</span>
-                        </a>
-                        <a href="{{ route('tilawah.index') }}" class="bg-white hover:bg-gray-400 ring-1 ring-gray-800 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                            <i class="fa-solid fa-ranking-star"></i> <span class="mx-3">Lihat Leaderboard</span>
-                        </a>
-                    </div>
-                @endif
+                @auth
+                    @if(stripos($kegiatan->judul, 'tilawah race') !== false) 
+                        <div class="mt-10 flex items-center justify-center gap-x-4">
+                            <a href="" class="bg-sky-800 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                                <i class="fa-solid fa-percent"></i> <span class="mx-3">Lapor Progress Tilawah</span>
+                            </a>
+                            @can('view-leaderboard')
+                                <a href="{{ route('tilawah.index') }}" class="bg-white hover:bg-gray-400 ring-1 ring-gray-800 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                                    <i class="fa-solid fa-ranking-star"></i> <span class="mx-3">Lihat Leaderboard</span>
+                                </a>
+                            @endcan
+                        </div>
+                    @endif
+                @endauth
 
                 <div class="mt-10 flex items-center justify-center gap-x-6">
                     <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center" onclick="history.back()">

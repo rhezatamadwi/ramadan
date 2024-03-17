@@ -10,7 +10,7 @@ Route::get('/', function () {
     $list_kegiatan = DB::table('kegiatan')->orderBy('order')->get();
 
     return view('welcome', compact('list_kegiatan'));
-});
+})->name('homepage');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
