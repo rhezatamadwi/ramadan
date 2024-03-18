@@ -30,7 +30,7 @@
                 @auth
                     @if(stripos($kegiatan->judul, 'tilawah race') !== false) 
                         <div class="mt-10 flex items-center justify-center gap-x-4">
-                            <button id="openModalBtn" class="bg-sky-600 hover:bg-sky-400 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                            <button id="openModalBtn" class="bg-sky-600 hover:bg-sky-400 text-white font-bold py-2 px-4 rounded inline-flex items-center openModalBtn">
                                 <i class="fa-solid fa-percent"></i> <span class="mx-3">Lapor Progress Tilawah</span>
                             </button>
                             @can('view-leaderboard')

@@ -20,7 +20,7 @@
                     Dashboard
                 </a> -->
                 <button id="openModalBtn"
-                    class="bg-sky-600 hover:bg-sky-400 text-white font-bold py-2 px-2 mx-1 rounded inline-flex items-center"
+                    class="bg-sky-600 hover:bg-sky-400 text-white font-bold py-2 px-2 mx-1 rounded inline-flex items-center openModalBtn"
                 >
                     <i class="fa-solid fa-book-open-reader mx-1"></i><i class="fa-solid fa-plus"></i>
                 </button>
