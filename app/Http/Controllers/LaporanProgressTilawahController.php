@@ -82,6 +82,8 @@ class LaporanProgressTilawahController extends Controller
 
         $percentage_all = ($ayat_terakhir_total / $jumlah_ayat_all) * 100;
 
+        $timezone = new \DateTimeZone("Asia/Jakarta");
+
         // insert to database
         DB::table('laporan_progress_tilawah')->insert([
             'id_user' => $id_user,
@@ -89,8 +91,8 @@ class LaporanProgressTilawahController extends Controller
             'ayat_sekarang' => $ayat_terakhir,
             '⁠percentage_surah' => $percentage_surah,
             '⁠percentage_all' => $percentage_all,
-            'created_at' => now(),
-            'updated_at' => now()
+            'created_at' => now($timezone),
+            'updated_at' => now($timezone)
         ]);
 
         return redirect('/')->with('success', 'Sukses melaporkan progress tilawah! Yuk makin semangat tilawahnya, biar makin banyak keberkahan yang kita dapatkan :)');
