@@ -19,13 +19,11 @@
                     <img src="{{url('/images/' . $kegiatan->gambar)}}" alt="Image"/>
                 @endif
 
-                <p class="mt-10">
                 @if ($kegiatan->isi)
                     {!! $kegiatan->isi !!}
                 @else
                     Belum ada isi
                 @endif
-                </p>
 
                 @auth
                     @if(stripos($kegiatan->judul, 'tilawah race') !== false) 
