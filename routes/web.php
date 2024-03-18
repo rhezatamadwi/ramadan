@@ -3,11 +3,17 @@
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\LaporanProgressTilawahController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    $list_kegiatan = DB::table('kegiatan')->orderBy('order')->get();
+    // get from cache
+    $list_kegiatan = Cache::remember('list_kegiatan', 3600, function() {
+        return DB::table('kegiatan')->orderBy('order')->get();
+    });
+
+    // $list_kegiatan = DB::table('kegiatan')->orderBy('order')->get();
 
     $id_user = 0;
     $last_progress_tilawah = null;
