@@ -75,10 +75,12 @@ class LaporanProgressTilawahController extends Controller
                     ->select(DB::raw('SUM(jumlah_ayat) AS akumulasi'))
                     ->where('index', '<', $id_surah)->first();
 
-        if($total_akumulasi_ayat) {
-            $ayat_terakhir = (int)$total_akumulasi_ayat->akumulasi + $ayat_terakhir;
-        }
-        $percentage_all = ($ayat_terakhir / $jumlah_ayat_all) * 100;
+        if($total_akumulasi_ayat)
+            $ayat_terakhir_total = (int)$total_akumulasi_ayat->akumulasi + $ayat_terakhir;
+        else
+            $ayat_terakhir_total = $ayat_terakhir;
+
+        $percentage_all = ($ayat_terakhir_total / $jumlah_ayat_all) * 100;
 
         // insert to database
         DB::table('laporan_progress_tilawah')->insert([
