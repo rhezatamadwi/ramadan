@@ -22,7 +22,7 @@ Route::get('/', function () {
 
     if($id_user) {
         $last_progress_tilawah = DB::table('laporan_progress_tilawah')
-            ->select('surahs.nama_surah', 'laporan_progress_tilawah.ayat_sekarang', 'laporan_progress_tilawah.created_at')
+            ->select('surahs.nama_surah', 'surahs.index', 'laporan_progress_tilawah.ayat_sekarang', 'laporan_progress_tilawah.created_at')
             ->join('users', 'users.id', '=', 'laporan_progress_tilawah.id_user')
             ->join('surahs', 'surahs.id', '=', 'laporan_progress_tilawah.id_surah')
             ->where('laporan_progress_tilawah.id_user', $id_user)

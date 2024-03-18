@@ -25,7 +25,7 @@
                                 @auth
                                     @if(stripos($keg->judul, 'tilawah race') !== false)
                                         @if($last_progress_tilawah)
-                                            <p class="text-base font-semibold leading-7 mt-4">Terakhir dibaca: {{ $last_progress_tilawah->nama_surah . ' Ayat ' . $last_progress_tilawah->ayat_sekarang }} </p>
+                                            <p class="text-base font-semibold leading-7 mt-4">Terakhir dibaca: {{ 'QS ' . $last_progress_tilawah->index . ': ' . $last_progress_tilawah->nama_surah . ' Ayat ' . $last_progress_tilawah->ayat_sekarang }} </p>
                                             <p class="text-sm text-gray-600">Pada: {{ $last_progress_tilawah->created_at }}</p>
                                         @else
                                             <p class="text-base font-semibold leading-7 mt-4">Belum ada laporan tilawah. Silahkan mulai ikut Tilawah Race dengan klik menu ini</p>
