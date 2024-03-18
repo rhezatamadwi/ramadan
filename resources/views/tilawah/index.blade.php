@@ -14,7 +14,11 @@
                     @foreach ($leaderboard as $l)
                         <li class="flex justify-between gap-x-6 py-5">
                             <div class="flex min-w-0 gap-x-4">
-                                <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-sky-100 transition duration-300 group-hover:bg-sky-100 sm:size-12">
+                                @if($loop->index == 0)
+                                    <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-amber-200 transition duration-300 group-hover:bg-sky-100 sm:size-12">
+                                @else
+                                    <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-sky-100 transition duration-300 group-hover:bg-sky-100 sm:size-12">
+                                @endif
                                     @if($loop->index == 0)
                                         <i class="fa-solid fa-medal"></i> 
                                     @endif
