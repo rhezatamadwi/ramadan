@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Kegiatan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class KegiatanController extends Controller
 {
@@ -34,9 +36,14 @@ class KegiatanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Kegiatan $kegiatan)
+    // public function show(Kegiatan $kegiatan)
+    public function show(int $id)
     {
         //
+        $kegiatan = Cache::remember('kegiatan'.$id, 3600, function () use ($id) {
+            return Kegiatan::find($id);
+        });
+
         return view('kegiatan.show', [
             'kegiatan' => $kegiatan
         ]);
