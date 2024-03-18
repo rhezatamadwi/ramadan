@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\EventListener\DebugHandlersListener;
 
 class LaporanProgressTilawahController extends Controller
 {
+    const TOTAL_AYAT_QURAN = 6236;
     /**
      * Display a listing of the resource.
      */
@@ -53,6 +54,44 @@ class LaporanProgressTilawahController extends Controller
     public function store(Request $request)
     {
         //
+        $id_user = auth()->user()->id;
+        $id_surah = $request->input('surah');
+        $ayat_terakhir = $request->input('ayat_terakhir');
+
+        // calculate percentage surah
+        $jumlah_ayat_surat = DB::table('surahs')->where('id', $id_surah)->first()->jumlah_ayat;
+
+        if($ayat_terakhir < 1 || $ayat_terakhir > $jumlah_ayat_surat) {
+            return redirect()->back()->with('error', 'Ayat yang dibaca terakhir tidak boleh kurang dari 1, dan tidak boleh melebihi jumlah ayat surah');
+        }
+
+        $percentage_surah = ($ayat_terakhir / $jumlah_ayat_surat) * 100;
+
+        // calculate percentage all
+        $jumlah_ayat_all = self::TOTAL_AYAT_QURAN;
+
+        // hitung akumulasi ayat dari surat-surat sebelumnya
+        $total_akumulasi_ayat = DB::table('surahs')
+                    ->select(DB::raw('SUM(jumlah_ayat) AS akumulasi'))
+                    ->where('index', '<', $id_surah)->first();
+
+        if($total_akumulasi_ayat) {
+            $ayat_terakhir = (int)$total_akumulasi_ayat->akumulasi + $ayat_terakhir;
+        }
+        $percentage_all = ($ayat_terakhir / $jumlah_ayat_all) * 100;
+
+        // insert to database
+        DB::table('laporan_progress_tilawah')->insert([
+            'id_user' => $id_user,
+            'id_surah' => $id_surah,
+            'ayat_sekarang' => $ayat_terakhir,
+            '⁠percentage_surah' => $percentage_surah,
+            '⁠percentage_all' => $percentage_all,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return redirect('/')->with('success', 'Sukses melaporkan progress tilawah! Yuk makin semangat tilawahnya, biar makin banyak keberkahan yang kita dapatkan :)');
     }
 
     /**

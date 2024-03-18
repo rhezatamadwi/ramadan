@@ -30,9 +30,9 @@
                 @auth
                     @if(stripos($kegiatan->judul, 'tilawah race') !== false) 
                         <div class="mt-10 flex items-center justify-center gap-x-4">
-                            <a href="" class="bg-sky-800 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                            <button id="openModalBtn" class="bg-sky-600 hover:bg-sky-400 text-white font-bold py-2 px-4 rounded inline-flex items-center">
                                 <i class="fa-solid fa-percent"></i> <span class="mx-3">Lapor Progress Tilawah</span>
-                            </a>
+                            </button>
                             @can('view-leaderboard')
                                 <a href="{{ route('tilawah.index') }}" class="bg-white hover:bg-gray-400 ring-1 ring-gray-800 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                                     <i class="fa-solid fa-ranking-star"></i> <span class="mx-3">Lihat Leaderboard</span>

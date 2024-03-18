@@ -9,7 +9,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $list_kegiatan = DB::table('kegiatan')->orderBy('order')->get();
 
-    return view('welcome', compact('list_kegiatan'));
+    $id_user = 0;
+    $last_progress_tilawah = null;
+    if(auth()->user())
+        $id_user = auth()->user()->id;
+
+    if($id_user) {
+        $last_progress_tilawah = DB::table('laporan_progress_tilawah')
+            ->select('surahs.nama_surah', 'laporan_progress_tilawah.ayat_sekarang', 'laporan_progress_tilawah.created_at')
+            ->join('users', 'users.id', '=', 'laporan_progress_tilawah.id_user')
+            ->join('surahs', 'surahs.id', '=', 'laporan_progress_tilawah.id_surah')
+            ->where('laporan_progress_tilawah.id_user', $id_user)
+            ->orderBy('laporan_progress_tilawah.created_at', 'desc')
+            ->first();
+    }
+
+    
+
+    return view('welcome', compact('list_kegiatan', 'last_progress_tilawah'));
 })->name('homepage');
 
 Route::get('/dashboard', function () {

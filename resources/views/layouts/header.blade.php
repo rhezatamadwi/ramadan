@@ -8,7 +8,7 @@
             <a
                 href="https://github.com/rhezatamadwi/ramadan"
                 target="_blank"
-                class="text-black px-3 py-2 rounded"
+                class="text-black px-2 py-2 mx-1 rounded"
             >
                 <i class="fa-brands fa-github"></i>
             </a>
@@ -19,11 +19,16 @@
                 >
                     Dashboard
                 </a> -->
+                <button id="openModalBtn"
+                    class="bg-sky-600 hover:bg-sky-400 text-white font-bold py-2 px-2 mx-1 rounded inline-flex items-center"
+                >
+                    <i class="fa-solid fa-book-open-reader mx-1"></i><i class="fa-solid fa-plus"></i>
+                </button>
                 <form class="py-2" method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a
                         href="{{ url('/logout') }}"
-                        class="rounded-md px-3 py-2 text-red-600 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                        class="rounded-md px-2 py-2 mx-1 text-red-600 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                         onclick="event.preventDefault(); this.closest('form').submit();"
                     >
                         Logout ({{ Auth::user()->email }})
