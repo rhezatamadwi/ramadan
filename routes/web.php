@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // get from cache
-    $list_kegiatan = Cache::remember('list_kegiatan', 3600, function() {
+    $list_kegiatan = Cache::remember('list_kegiatan', 3600*24, function() {
         return DB::table('kegiatan')->orderBy('order')->get();
     });
 

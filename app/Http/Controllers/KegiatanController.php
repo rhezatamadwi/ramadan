@@ -40,7 +40,7 @@ class KegiatanController extends Controller
     public function show(int $id)
     {
         //
-        $kegiatan = Cache::remember('kegiatan'.$id, 3600, function () use ($id) {
+        $kegiatan = Cache::remember('kegiatan'.$id, 3600*24, function () use ($id) {
             return Kegiatan::find($id);
         });
 
