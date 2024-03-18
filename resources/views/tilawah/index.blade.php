@@ -1,5 +1,34 @@
 @extends('layouts.layout')
 
+<p class="mt-10 text-justify">
+    🕌☪ Lantunan Ayat Pembuka Rahmat 
+    Gema Ramadhan : Tingkatkan Iman, Raih Ampunan
+    <br><br>
+    Assalamualaikum #InsanLPDP
+    <br><br>
+    Mari semarakkan Bulan Ramadhan 1445H dengan Lantunan Ayat Suci Al-Qur'an dalam Tilawah Race. Kegiatan Tilawah Ramadhan tahun ini akan berbeda dari tahun sebelumnya karena tilawah dilakukan secara individu dan bagi insan LPDP yang paling banyak mengkhatamkan Al-Qur'an akan mendapatkan hadiah Umroh(*). Berikut ketentuan kegiatan Tilawah Race:
+</p>
+    <ol class="mt-7 text-justify list-decimal px-4">
+        <li>Seluruh Insan LPDP dipersilakan mengikuti kegiatan lomba tilawah ini, seluruh pegawai, driver, OB mendapatkan kesempatan yang sama.</li>
+        <li>Periode pelaksanaan dimulai sejak tanggal 18 Maret 2024 (pkl. 18.30 WIB) sampai dengan 5 April 2024 (pkl. 18.30 WIB) dan Tilawah dimulai dari Q.S Al-Fatihah.</li>
+        <li>Laporan tilawah dapat disetor pada tautan berikut <a class="text-sky-800 hover:text-sky-500" target="_blank" href="https://ramadan.rhezatama.com">https://ramadan.rhezatama.com</a></li>
+        <li>Tata cara laporan tilawah harian dapat dilihat pada link tutorial terlampir
+            <ul class="list-disc  px-4">
+                <li>Cara Register Akun: <a class="text-sky-800 hover:text-sky-500" target="_blank" href="https://youtu.be/43Nokz8ig1M">https://youtu.be/43Nokz8ig1M</a></li>
+                <li>Cara Lapor Tilawah: <a class="text-sky-800 hover:text-sky-500" target="_blank" href="https://youtu.be/2RwU4vUG94M">https://youtu.be/2RwU4vUG94M</a></li> 
+                <li>(Laporkan bacaan terakhir, dimulai dari Q.S. Alfatihah)</li>
+            </ul>
+        </li>
+        <li>Tilawah dilakukan di luar jam kerja sesuai dengan waktu clock in/clock out. Laporan tilawah ketika jam kerja tidak akan dihitung.
+        <li>Pemenang adalah peserta yang paling banyak capaian tilawahnya, dan akan diumumkan di akhir periode kegiatan.
+    </ol>
+</p>
+---
+<p class="mt-4 text-sm/relaxed italic text-justify">
+Orang yang membaca Al-Quran, sedangkan ia masih terbata-bata lagi berat dalam membacanya, maka ia akan mendapatkan dua pahala.” (H.R. Bukhari dan Muslim)
+
+#Eksplo12amadan
+</p>
 @section('content')
 <div class="grid gap-6 lg:gap-8 mt-10">
     <div class="bg-white py-24 sm:py-32 rounded-lg ">
