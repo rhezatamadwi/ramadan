@@ -1017,6 +1017,10 @@ select {
   aspect-ratio: 577/310;
 }
 
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
 .size-12 {
   width: 3rem;
   height: 3rem;

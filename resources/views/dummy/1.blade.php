@@ -68,5 +68,5 @@ Buka puasa munum es teh, duh dingin dan sejuknya nyaman di lidah. Namun tak leng
 Tenaang, ada Kampus Ramadan yang hadir untuk menemani sobat Insan LPDP berbuka puasa . Di Episode pertama ini, M. Sopyan Husein mengingatkan kita tentang pentingnya menjaga ibadah di bulan suci ramadan. 
 <br><br>
 Yuk simak selengkapnya di tautan berikut!
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_OvAxZpOMnc?si=KR5-zr2aTKxSDFLc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe class="w-full aspect-video" src="https://www.youtube.com/embed/_OvAxZpOMnc?si=KR5-zr2aTKxSDFLc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </p>
