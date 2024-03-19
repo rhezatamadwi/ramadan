@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="grid gap-6 lg:gap-8 mt-10">
+<div class="grid gap-6 lg:gap-8 mt-5">
     <div class="bg-white py-24 sm:py-32 rounded-lg ">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:text-center">

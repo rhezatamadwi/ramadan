@@ -57,3 +57,16 @@ Orang yang membaca Al-Quran, sedangkan ia masih terbata-bata lagi berat dalam me
 
 #Eksplo12amadan
 </p>
+
+<p class="mt-5 text-justify">
+<span class="text-lg font-bold">🕌☪Kampus Ramadan Episode 01: Ramadan Jangan Disiakan!☪🕌</span>
+<br>
+<span class="text-lg font-bold">Pembicara: M. Sopyan Husein</span>
+<br><br>
+Buka puasa munum es teh, duh dingin dan sejuknya nyaman di lidah. Namun tak lengkap rasanya jika berbuka tanpa ditemani penyejuk hati. 
+<br><br>
+Tenaang, ada Kampus Ramadan yang hadir untuk menemani sobat Insan LPDP berbuka puasa . Di Episode pertama ini, M. Sopyan Husein mengingatkan kita tentang pentingnya menjaga ibadah di bulan suci ramadan. 
+<br><br>
+Yuk simak selengkapnya di tautan berikut!
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_OvAxZpOMnc?si=KR5-zr2aTKxSDFLc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</p>
