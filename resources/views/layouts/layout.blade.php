@@ -103,8 +103,8 @@
                                 <div class="p-4">
                                     <h2 class="text-2xl font-bold" id="modal-headline">Lapor Progress Tilawah Race</h2>
 
-                                    <div class="bg-sky-100 border-t border-b border-sky-500 text-sky-700 px-4 py-3 mt-5" role="alert">
-                                        <p>Sebelum lapor progress tilawah, pastikan kamu sudah membaca ketentuannya <a class="text-sky-800 hover:text-sky-500" target="_blank" href="{{ route('kegiatan.show', ['kegiatan' => 10]) }}">disini</a> yaa :)</p>
+                                    <div class="bg-sky-100 border-t border-b border-sky-500 text-gray-600 px-4 py-3 mt-5" role="alert">
+                                        <p>Sebelum lapor progress tilawah, pastikan kamu sudah membaca ketentuannya <a class="text-sky-600 hover:text-sky-800" target="_blank" href="{{ route('kegiatan.show', ['kegiatan' => 10]) }}">disini</a> yaa :)</p>
                                     </div>
                                     
                                     <!-- Form -->
