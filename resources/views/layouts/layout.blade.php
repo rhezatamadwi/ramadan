@@ -59,6 +59,7 @@
     to-emerald-300
     background-animate
   ">
+
             <!-- <img id="background" class="absolute -left-20 top-0 max-w-[877px]" src="https://laravel.com/assets/img/welcome/background.svg" /> -->
             <div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
                 <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
@@ -101,6 +102,10 @@
                             <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                                 <div class="p-4">
                                     <h2 class="text-2xl font-bold" id="modal-headline">Lapor Progress Tilawah Race</h2>
+
+                                    <div class="bg-sky-100 border-t border-b border-sky-500 text-sky-700 px-4 py-3 mt-5" role="alert">
+                                        <p>Sebelum lapor progress tilawah, pastikan kamu sudah membaca ketentuannya <a class="text-sky-800 hover:text-sky-500" target="_blank" href="{{ route('kegiatan.show', ['kegiatan' => 10]) }}">disini</a> yaa :)</p>
+                                    </div>
                                     
                                     <!-- Form -->
                                     <form action="{{ route('tilawah.store') }}" method="POST">
