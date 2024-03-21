@@ -40,6 +40,27 @@ class LaporanProgressTilawahController extends Controller
         return view('tilawah.index', compact('leaderboard', 'last_update_timestamp'));
     }
 
+    public function progress()
+    {
+        $id_user = auth()->user()->id;
+        $leaderboard = DB::table('laporan_progress_tilawah')
+            ->select('users.name', 'users.email', 'surahs.index', 'surahs.nama_surah', 'laporan_progress_tilawah.ayat_sekarang', 'laporan_progress_tilawah.created_at', DB::raw('RANK() OVER (
+                ORDER BY `⁠percentage_all` DESC, `⁠percentage_surah` DESC, laporan_progress_tilawah.created_at ASC
+            ) urutan'))
+            ->join('users', 'users.id', '=', 'laporan_progress_tilawah.id_user')
+            ->join('surahs', 'surahs.id', '=', 'laporan_progress_tilawah.id_surah')
+            ->where('laporan_progress_tilawah.id_user', $id_user)
+            ->get();
+
+        $last_update_timestamp = DB::table('laporan_progress_tilawah')
+            ->select('created_at')
+            ->where('id_user', $id_user)
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        return view('tilawah.progress', compact('leaderboard', 'last_update_timestamp'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -95,7 +116,7 @@ class LaporanProgressTilawahController extends Controller
             'updated_at' => now($timezone)
         ]);
 
-        return redirect('/')->with('success', 'Sukses melaporkan progress tilawah! Yuk makin semangat tilawahnya, biar makin banyak keberkahan yang kita dapatkan :)');
+        return redirect('/tilawah/progress')->with('success', 'Sukses melaporkan progress tilawah! Yuk makin semangat tilawahnya, biar makin banyak keberkahan yang kita dapatkan :)');
     }
 
     /**

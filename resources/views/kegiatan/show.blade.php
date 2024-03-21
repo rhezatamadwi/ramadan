@@ -31,6 +31,9 @@
                             <button id="openModalBtn" class="bg-sky-600 hover:bg-sky-400 text-white font-bold py-2 px-4 rounded inline-flex items-center openModalBtn">
                                 <i class="fa-solid fa-percent"></i> <span class="mx-3">Lapor Progress Tilawah</span>
                             </button>
+                            <a href="{{ route('tilawah.progress') }}" class="bg-white hover:bg-gray-400 ring-1 ring-gray-800 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                                <i class="fa-solid fa-clock-rotate-left"></i> <span class="mx-3">Lihat History Laporan</span>
+                            </a>
                             @can('view-leaderboard')
                                 <a href="{{ route('tilawah.index') }}" class="bg-white hover:bg-gray-400 ring-1 ring-gray-800 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
                                     <i class="fa-solid fa-ranking-star"></i> <span class="mx-3">Lihat Leaderboard</span>
