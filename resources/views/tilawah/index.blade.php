@@ -26,7 +26,12 @@
                                 </div>
                             <!-- <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""> -->
                             <div class="min-w-0 flex-auto">
-                                <p class="text-sm font-semibold leading-6 text-gray-900">{{ $l->name }}</p>
+                                <p class="text-sm font-semibold leading-6 text-gray-900">
+                                    {{ $l->name }}
+                                    @if($l->is_khatam)
+                                        <span class="text-xs font-semibold bg-amber-200 text-gray-900 rounded p-1">Khatam {{ $l->is_khatam }}x</span>
+                                    @endif
+                                </p>
                                 <p class="mt-1 truncate text-xs leading-5 text-gray-500">{{ $l->email }}</p>
                             </div>
                             </div>

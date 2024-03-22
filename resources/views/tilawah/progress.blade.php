@@ -25,14 +25,29 @@
                         </button>
                     </div>
                 @else
+                    @if($khatam_count > 0)
+                        <div class="flex items center justify-center gap-x-4">
+                            <p class="leading-6 text-gray-900 font-bold">Selamat! Kamu sudah khatam {{ $khatam_count }} kali</p>
+                        </div>
+                    @endif
                     <ul role="list" class="divide-y divide-gray-100 grid justify-items-center">
                         @foreach ($leaderboard as $l)
                             <li class="flex justify-center items-center gap-x-6 py-5">
-                                <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-sky-100 transition duration-300 group-hover:bg-sky-100 sm:size-12">
-                                    <i class="fa-solid fa-book-bookmark"></i>
+                                @if($l->is_khatam)
+                                    <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-amber-200 transition duration-300 group-hover:bg-sky-100 sm:size-12">
+                                        <i class="fa-solid fa-flag-checkered"></i>
+                                @else
+                                    <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-sky-100 transition duration-300 group-hover:bg-sky-100 sm:size-12">
+                                        <i class="fa-solid fa-book-bookmark"></i>
+                                @endif
                                 </div>
                                 <div class="min-w-0 justify-items-center">
-                                    <p class="text-sm font-semibold leading-6 text-gray-900">Laporan {{ $loop->count - $loop->index }}</p>
+                                    <p class="text-sm font-semibold leading-6 text-gray-900">
+                                        Laporan {{ $loop->count - $loop->index }} 
+                                        @if($l->is_khatam)
+                                            <span class="text-xs font-semibold bg-amber-200 text-gray-900 rounded p-1">Khatam</span>
+                                        @endif
+                                    </p>
                                     <p class="mt-1 truncate text-xs leading-5 text-gray-500">Dilaporkan pada: {{ $l->created_at }}</p>
                                 </div>
                                 <div class="sm:flex sm:flex-col sm:items-end">

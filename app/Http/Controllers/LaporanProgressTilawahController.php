@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\LaporanProgressTilawah;
+use App\Models\Surah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
@@ -20,7 +21,7 @@ class LaporanProgressTilawahController extends Controller
         Gate::authorize('view-leaderboard');
 
         $leaderboard = DB::table('laporan_progress_tilawah')
-            ->select('users.name', 'users.email', 'surahs.index', 'surahs.nama_surah', 'laporan_progress_tilawah.ayat_sekarang', 'laporan_progress_tilawah.created_at', DB::raw('RANK() OVER (
+            ->select('users.name', 'users.email', 'surahs.index', 'surahs.nama_surah', 'laporan_progress_tilawah.ayat_sekarang', 'laporan_progress_tilawah.created_at', 'khatam.is_khatam', DB::raw('RANK() OVER (
                 ORDER BY `⁠percentage_all` DESC, `⁠percentage_surah` DESC, laporan_progress_tilawah.created_at ASC
             ) urutan'))
             ->join('users', 'users.id', '=', 'laporan_progress_tilawah.id_user')
@@ -28,6 +29,11 @@ class LaporanProgressTilawahController extends Controller
             ->join(DB::raw('(SELECT MAX(id) as id FROM laporan_progress_tilawah GROUP BY id_user) last_updates'), 
                 function($join) {
                     $join->on('laporan_progress_tilawah.id', '=', 'last_updates.id');
+                }
+            )
+            ->leftJoin(DB::raw('(SELECT id_user, COUNT(is_khatam) as is_khatam FROM laporan_progress_tilawah WHERE is_khatam = 1 GROUP BY id_user) khatam'), 
+                function($join) {
+                    $join->on('laporan_progress_tilawah.id_user', '=', 'khatam.id_user');
                 }
             )
             ->get();
@@ -44,7 +50,7 @@ class LaporanProgressTilawahController extends Controller
     {
         $id_user = auth()->user()->id;
         $leaderboard = DB::table('laporan_progress_tilawah')
-            ->select('users.name', 'users.email', 'surahs.index', 'surahs.nama_surah', 'laporan_progress_tilawah.ayat_sekarang', 'laporan_progress_tilawah.created_at', DB::raw('RANK() OVER (
+            ->select('users.name', 'users.email', 'surahs.index', 'surahs.nama_surah', 'laporan_progress_tilawah.ayat_sekarang', 'laporan_progress_tilawah.is_khatam', 'laporan_progress_tilawah.created_at', DB::raw('RANK() OVER (
                 ORDER BY `⁠percentage_all` DESC, `⁠percentage_surah` DESC, laporan_progress_tilawah.created_at ASC
             ) urutan'))
             ->join('users', 'users.id', '=', 'laporan_progress_tilawah.id_user')
@@ -58,7 +64,10 @@ class LaporanProgressTilawahController extends Controller
             ->orderBy('created_at', 'desc')
             ->first();
 
-        return view('tilawah.progress', compact('leaderboard', 'last_update_timestamp'));
+        // hitung berapa kali khatam
+        $khatam_count = $this->countKhatam($id_user);
+
+        return view('tilawah.progress', compact('leaderboard', 'last_update_timestamp', 'khatam_count'));
     }
 
     /**
@@ -105,6 +114,19 @@ class LaporanProgressTilawahController extends Controller
 
         $timezone = new \DateTimeZone("Asia/Jakarta");
 
+        // check if khatam
+        $is_khatam = 0;
+        if($id_surah == Surah::INDEX_ANNAS && $ayat_terakhir == Surah::TOTAL_AYAT_ANNAS) {
+            $is_khatam = 1;
+        }
+
+        // hitung berapa kali khatam
+        $khatam_count = $this->countKhatam($id_user);
+
+        if($khatam_count > 0) {
+            $percentage_all = ($khatam_count*100) + $percentage_all;
+        }
+
         // insert to database
         DB::table('laporan_progress_tilawah')->insert([
             'id_user' => $id_user,
@@ -112,6 +134,7 @@ class LaporanProgressTilawahController extends Controller
             'ayat_sekarang' => $ayat_terakhir,
             '⁠percentage_surah' => $percentage_surah,
             '⁠percentage_all' => $percentage_all,
+            'is_khatam' => $is_khatam,
             'created_at' => now($timezone),
             'updated_at' => now($timezone)
         ]);
@@ -149,5 +172,12 @@ class LaporanProgressTilawahController extends Controller
     public function destroy(LaporanProgressTilawah $laporanProgressTilawah)
     {
         //
+    }
+
+    private function countKhatam(int $id_user) {
+        return DB::table('laporan_progress_tilawah')
+            ->where('id_user', $id_user)
+            ->where('is_khatam', 1)
+            ->count();
     }
 }
