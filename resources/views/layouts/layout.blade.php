@@ -80,9 +80,9 @@
                             </div>
                             <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
                                 <p class="text-sm leading-6 text-gray-900">
-                                <strong class="font-semibold">Pengumuman:</strong> Tonton Kampus Ramadan episode terbaru dengan klik tombol ini:
+                                <strong class="font-semibold">Pengumuman:</strong> Tonton Intro: Sinaran episode terbaru dengan klik tombol ini:
                                 </p>
-                                <a href="{{ route('kegiatan.show', ['kegiatan'=>5]) }}" class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Lihat <span aria-hidden="true">&rarr;</span></a>
+                                <a href="{{ route('kegiatan.show', ['kegiatan'=>3]) }}" class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Lihat <span aria-hidden="true">&rarr;</span></a>
                             </div>
                             <div class="flex flex-1 justify-end">
                                 <!-- <button type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]">
