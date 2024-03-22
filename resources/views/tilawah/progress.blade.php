@@ -28,6 +28,9 @@
                     <ul role="list" class="divide-y divide-gray-100 grid justify-items-center">
                         @foreach ($leaderboard as $l)
                             <li class="flex justify-center items-center gap-x-6 py-5">
+                                <div class="flex size-12 shrink-0 items-center justify-center rounded-full bg-sky-100 transition duration-300 group-hover:bg-sky-100 sm:size-12">
+                                    <i class="fa-solid fa-book-bookmark"></i>
+                                </div>
                                 <div class="min-w-0 justify-items-center">
                                     <p class="text-sm font-semibold leading-6 text-gray-900">Laporan {{ $loop->count - $loop->index }}</p>
                                     <p class="mt-1 truncate text-xs leading-5 text-gray-500">Dilaporkan pada: {{ $l->created_at }}</p>
